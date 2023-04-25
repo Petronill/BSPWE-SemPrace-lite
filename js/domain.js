@@ -44,6 +44,10 @@ function updateTable(freeDomains) {
 function getDomain(domain) {
     post('/api/get_domain.php', valueToData('domain', domain), getAuth())
     .then(data => {
-        // TODO!
+        if (data.success) {
+            //TODO: zobrazit přihlašovací údaje k db a ftp
+        } else {
+            showMessageDialog("Doménu se nepodařilo zaregistrovat!");
+        }
     });
 }
