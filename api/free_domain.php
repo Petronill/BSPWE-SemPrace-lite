@@ -7,3 +7,11 @@
         'cost': cena domény (třeba 99 za .cz, 299 za .com a 199 za .org)
     }
 }*/
+
+<?php
+    $domain = $_POST['domain'];
+
+    
+
+    return json_encode(array("name"=>$is_success, "credentials"=>$credentials));
+?>
