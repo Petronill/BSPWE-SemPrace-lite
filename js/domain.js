@@ -13,7 +13,7 @@ $(document).ready(function () {
 })
 
 function seeDomain(domain) {
-    post('/api/free_domain.php', valueToData('domain', domain))
+    post('api/free_domain.php', valueToData('domain', domain))
         .then(data => {
             if (data.freeDomains.length > 0) {
                 $("#no-data-container").hide();
@@ -33,7 +33,7 @@ function updateTable(freeDomains) {
     <tr>
         <th scope="row">${domain.name}</th>
         <td>${domain.cost} Kč</td>
-        <td class="td-button"><button class="btn btn-outline-success order-button" onclick="getDomain('${domain.name}')" >Objednat</button>
+        <td class="td-button"><button class="btn btn-outline-success order-button" onclick="getDomain('${domain.name}')">Objednat</button>
         </td>
     </tr>`;
     });
@@ -42,7 +42,7 @@ function updateTable(freeDomains) {
 };
 
 function getDomain(domain) {
-    post('/api/get_domain.php', valueToData('domain', domain))
+    post('api/get_domain.php', valueToData('domain', domain))
     .then(data => {
         if (data.success) {
             showMessageDialog(`Uživatelské jméno: ${data.credentials.username}, heslo: ${data.credentials.password}`); // OK?
