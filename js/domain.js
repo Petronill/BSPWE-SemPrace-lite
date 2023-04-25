@@ -33,7 +33,7 @@ function updateTable(freeDomains) {
     <tr>
         <th scope="row">${domain.name}</th>
         <td>${domain.cost} Kč</td>
-        <td class="td-button"><button class="btn btn-outline-success order-button" onclick="getDomain('${domain.name}')">Objednat</button>
+        <td class="td-button"><button class="btn btn-outline-success order-button" onclick="getDomain('${domain.name}')" >Objednat</button>
         </td>
     </tr>`;
     });
@@ -42,12 +42,17 @@ function updateTable(freeDomains) {
 };
 
 function getDomain(domain) {
-    post('/api/get_domain.php', valueToData('domain', domain), getAuth())
-    .then(data => {
-        if (data.success) {
-            //TODO: zobrazit přihlašovací údaje k db a ftp
-        } else {
-            showMessageDialog("Doménu se nepodařilo zaregistrovat!");
-        }
-    });
+    const auth = getAuth();
+    if (auth) {
+        post('/api/get_domain.php', valueToData('domain', domain), auth)
+        .then(data => {
+            if (data.success) {
+                //TODO: zobrazit přihlašovací údaje k db a ftp
+            } else {
+                showMessageDialog("Doménu se nepodařilo zaregistrovat!");
+            }
+        });
+    } else {
+        showMessageDialog("Nejprve se musíte přihlásit.");
+    }
 }

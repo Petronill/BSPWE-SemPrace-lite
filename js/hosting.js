@@ -49,8 +49,13 @@ $(document).ready(function () {
     });
 
     $("#saveButton").on("click", function() {
-
-        showMessageDialog("Soubory byly nahrány.");
+        post('/api/upload_files.php', valueToData('domain', 'TODO', arrayToData('files', $('#uploadInput').files)), getAuth()).then(data => {
+            if (data.success) {
+                showMessageDialog("Soubory byly nahrány.");
+            } else {
+                showMessageDialog("Soubory nebyly nahrány. Zkuste to prosím později.");
+            }
+        });
     });
 
 });

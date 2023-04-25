@@ -18,7 +18,7 @@ function objectToData(object, prevData = new FormData()) {
     }, prevData);
 }
 
-function arrayToData(name, array,prevData = new FormData()) {
+function arrayToData(name, array, prevData = new FormData()) {
     const arrayName = name+'[]';
     return array.reduce((formData, entry) => {
         formData.append(arrayName, entry);
