@@ -24,7 +24,7 @@
                 <div class="input-group">
                     <div class="input-group-text text-addon" id="btnGroupAddon">www.</div>
                     <input type="text" class="form-control full-border" style="width:20rem;" id="floatingInput"
-                        name="domain" placeholder="vasweb.com" required>
+                        name="domain" placeholder="vasweb" required>
                     <button type="button" class="btn btn-success" id="verify-button">Ověřit</button>
                 </div>
             </div>
@@ -58,24 +58,6 @@
                         <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">vasweb.cz</th>
-                        <td>99 Kč</td>
-                        <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">vasweb.com</th>
-                        <td>299 Kč</td>
-                        <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">vasweb.org</th>
-                        <td>199 Kč</td>
-                        <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -89,6 +71,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="js/ajaptor.js"></script>
     <script src="js/dialog.js"></script>
     <script src="js/domain.js"></script>
 </body>

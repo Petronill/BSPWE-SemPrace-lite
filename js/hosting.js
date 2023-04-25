@@ -7,19 +7,17 @@ $(document).ready(function () {
     function handleFileDragAndDrop(event) {
         event.preventDefault();
         files = event.originalEvent.dataTransfer.files;
-        const fileList = $('#fileList');
-
-        fileList.empty();
-
-        displayFiles(files, fileList);
+        handleFileUpdate(files);
     }
 
     function handleFileUpload(event) {
         files = event.target.files;
+        handleFileUpdate(files);
+    }
+
+    function handleFileUpdate(files) {
         const fileList = $('#fileList');
-
         fileList.empty();
-
         displayFiles(files, fileList)
     }
 
@@ -31,7 +29,7 @@ $(document).ready(function () {
     }
 
     //fileList je div kde jsou umisteny jednotlive dokumenty
-    var fileList = document.getElementById("fileList");
+    const fileList = document.getElementById("fileList");
 
     //event listeners ktere zajistuji drag and drop funkcionalitu nad fileListem
     fileList.addEventListener("dragover", function (e) {
@@ -48,6 +46,11 @@ $(document).ready(function () {
         e.preventDefault();
         fileList.classList.remove("dragover");
         var files = e.dataTransfer.files;
+    });
+
+    $("#saveButton").on("click", function() {
+
+        showMessageDialog("Soubory byly nahrány.");
     });
 
 });
@@ -75,5 +78,4 @@ function fileListEmpty(){
 const noFileText = `<div id="noFilesText" class=" d-block">
 <i class="bi bi-plus-circle-dotted"></i>
 <p>nahrajte váše soubory pomocí drag and drop</p>
-</div>`
-
+</div>`;

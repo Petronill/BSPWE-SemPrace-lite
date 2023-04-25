@@ -2,30 +2,41 @@ $(document).ready(function () {
     $(".table-container").hide();
     $("#no-data-container").hide();
 
-    let isDomainFree = true; //ten boolean by se mel zmenit pokud zvolena domena je/neni volna
     $("#verify-button").click(function () {
         var domain = $("input").val();
+        if (domain) {
+            seeDomain(domain);
+        } else {
+            showMessageDialog("Neuvedl jste žádnou doménu!");
+        }
+    });
 
-        if ($("input").val()) {
-            if (isDomainFree) {
+    $(".order-button").click(function () {
+        //getDomain(...);
+    });
+})
+
+function seeDomain(domain) {
+    post('/api/free_domain.php', valueToData('domain', domain), getAuth())
+        .then(data => {
+            if (data.anyDomainFree) {
                 $("#no-data-container").hide();
-                //tady asi nacist data z databaze, obnovit obsah tabulky
-                updateTable();
+                updateTable(data);
                 $(".table-container").hide().slideDown("fast");
             } else {
                 $(".table-container").hide()
                 $("#no-data-container").hide().slideDown("fast");
             }
-        } else {
-            showMessageDialog("Neuvedl jste žádnou doménu!")
-        }
-    });
+        });
+}
 
-    $(".order-button").click(function () {
-
-    });
-})
-
-function updateTable() {
-
+function updateTable(data) {
+    // TODO: nacist data z databaze, obnovit obsah tabulky
 };
+
+function getDomain(domain) {
+    post('/api/get_domain.php', valueToData('domain', domain), getAuth())
+    .then(data => {
+        // TODO!
+    });
+}
