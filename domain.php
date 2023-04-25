@@ -24,7 +24,7 @@
                 <div class="input-group">
                     <div class="input-group-text text-addon" id="btnGroupAddon">www.</div>
                     <input type="text" class="form-control full-border" style="width:20rem;" id="floatingInput"
-                        name="domain" placeholder="vasweb" required>
+                        name="domain" placeholder="vasweb" required autofocus>
                     <button type="button" class="btn btn-success" id="verify-button">Ověřit</button>
                 </div>
             </div>
@@ -40,24 +40,6 @@
                     </tr>
                 </thead>
                 <tbody id="table-body">
-                    <tr>
-                        <th scope="row">vasweb.cz</th>
-                        <td>99 Kč</td>
-                        <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">vasweb.com</th>
-                        <td>299 Kč</td>
-                        <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">vasweb.org</th>
-                        <td>199 Kč</td>
-                        <td class="td-button"><button class="btn btn-outline-success order-button">Objednat</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

@@ -15,13 +15,13 @@ $(document).ready(function () {
 function seeDomain(domain) {
     post('api/free_domain.php', valueToData('domain', domain))
         .then(data => {
-            if (data.freeDomains.length > 0) {
+            if (data.length > 0) {
                 $("#no-data-container").hide();
-                updateTable(data.freeDomains);
-                $(".table-container").hide().slideDown("fast");
+                updateTable(data);
+                $(".table-container").show().slideDown("fast");
             } else {
                 $(".table-container").hide()
-                $("#no-data-container").hide().slideDown("fast");
+                $("#no-data-container").show().slideDown("fast");
             }
         });
 }
@@ -29,7 +29,7 @@ function seeDomain(domain) {
 function updateTable(freeDomains) {
     let contents = ``;
     freeDomains.forEach(domain => {
-        constents += `
+        contents += `
     <tr>
         <th scope="row">${domain.name}</th>
         <td>${domain.cost} Kč</td>
@@ -45,7 +45,9 @@ function getDomain(domain) {
     post('api/get_domain.php', valueToData('domain', domain))
     .then(data => {
         if (data.success) {
-            showMessageDialog(`Uživatelské jméno: ${data.credentials.username}, heslo: ${data.credentials.password}`); // OK?
+            showMessageDialog(`Uživatelské jméno: ${data.credentials.username},
+heslo do databáze: ${data.credentials.passwordDB},
+heslo k FTP: ${data.credentials.passwordFTP}`); // OK?
         } else {
             showMessageDialog("Doménu se nepodařilo zaregistrovat!");
         }

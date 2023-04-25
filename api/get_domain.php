@@ -2,8 +2,8 @@
     $domain = $_POST['domain'];
 
     $username = $domain.substr(uniqid(""), 0, 6);
-    $passwordDB = substr(uniqid("", true), -9);
-    $passwordFTP = substr(uniqid("", true), -9);
+    $passwordDB = substr(uniqid("", true), -8);
+    $passwordFTP = substr(uniqid("", true), -8);
 
     // Create DB
     $output = shell_exec(sprintf("/var/www/scripts/create_database.sh '%s' '%s' '%s'", 
