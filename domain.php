@@ -39,7 +39,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
                     <tr>
                         <th scope="row">vasweb.cz</th>
                         <td>99 Kč</td>

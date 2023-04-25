@@ -10,18 +10,14 @@ $(document).ready(function () {
             showMessageDialog("Neuvedl jste žádnou doménu!");
         }
     });
-
-    $(".order-button").click(function () {
-        //getDomain(...);
-    });
 })
 
 function seeDomain(domain) {
     post('/api/free_domain.php', valueToData('domain', domain), getAuth())
         .then(data => {
-            if (data.anyDomainFree) {
+            if (data.freeDomains.length > 0) {
                 $("#no-data-container").hide();
-                updateTable(data);
+                updateTable(data.freeDomains);
                 $(".table-container").hide().slideDown("fast");
             } else {
                 $(".table-container").hide()
@@ -30,8 +26,19 @@ function seeDomain(domain) {
         });
 }
 
-function updateTable(data) {
-    // TODO: nacist data z databaze, obnovit obsah tabulky
+function updateTable(freeDomains) {
+    let contents = ``;
+    freeDomains.forEach(domain => {
+        constents += `
+    <tr>
+        <th scope="row">${domain.name}</th>
+        <td>${domain.cost} Kč</td>
+        <td class="td-button"><button class="btn btn-outline-success order-button" onclick="getDomain('${domain.name}')">Objednat</button>
+        </td>
+    </tr>`;
+    });
+
+    $('#table-body').html(contents);
 };
 
 function getDomain(domain) {
