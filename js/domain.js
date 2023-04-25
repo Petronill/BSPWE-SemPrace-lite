@@ -45,7 +45,7 @@ function getDomain(domain) {
     post('/api/get_domain.php', valueToData('domain', domain))
     .then(data => {
         if (data.success) {
-            //TODO: zobrazit přihlašovací údaje k db a ftp
+            showMessageDialog(`Uživatelské jméno: ${data.credentials.username}, heslo: ${data.credentials.password}`); // OK?
         } else {
             showMessageDialog("Doménu se nepodařilo zaregistrovat!");
         }
