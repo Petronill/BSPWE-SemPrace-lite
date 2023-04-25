@@ -9,17 +9,8 @@
 <?php
     $domain = $_POST['domain'];
 
-    $username = "TODO generate";
-    while(username_exists($username)) {
-        $username = "TODO generate";
-    }
-
-    function username_exists($uname) {
-        $exists = shell_exec("if test -d /home/" + $uname + "; then echo 'exists'; fi");
-        return strcmp($exists, "exists") == 0;
-    }
-
-    $password = "TODO generate - at least 6 char/num long";
+    $username = $domain + substr(uniqid("_"), 0, 5);
+    $password = substr(uniqid("", true), -8);
 
     // Create DB
     $output = shell_exec(sprintf("/var/www/scripts/create_database.sh '%s' '%s' '%s'", 
