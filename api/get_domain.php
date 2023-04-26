@@ -1,10 +1,10 @@
 <?php
-    $domain = str_replace(".", "_", $_POST['domain']);
+    $domain = $_POST['domain'];
 
     $username = $domain."_".substr(uniqid(""), 6);
     $passwordDB = substr(uniqid("", true), -8);
     $passwordFTP = substr(uniqid("", true), -8);
-    $dbname = $username."_db";
+    $dbname = str_replace(".", "_", $username)."_db";
 
     // Create DB
     $output = shell_exec(sprintf("sudo /var/www/scripts/create_database.sh '%s' '%s' '%s'", 
