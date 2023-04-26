@@ -12,6 +12,7 @@ body {
     background-size: 400% 400%;
     animation: GradientAnimation 15s ease infinite;
     animation-direction: alternate-reverse;
+    min-height: 100vh;
 }
 
 @keyframes GradientAnimation {
@@ -39,6 +40,8 @@ body {
 
 footer {
     background-color: var(--dark);
+    position: sticky;
+    top: 100%;
 }
 
 .navbar-brand {

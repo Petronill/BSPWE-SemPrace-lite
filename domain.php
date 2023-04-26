@@ -49,9 +49,7 @@
         <div class="row col-md-12" id="credentials-container" style="margin-top: 2rem;">
         </div>
     </div>
-    <div class="fixed-bottom">
-        <?php include 'footer.html' ?>
-    </div>
+    <?php include 'footer.html' ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
