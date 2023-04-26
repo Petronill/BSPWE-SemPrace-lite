@@ -1,7 +1,7 @@
 <?php
     $domain = $_POST['domain'];
 
-    $shell_format = "if test -d /etc/apache2/sites-available/%s_%s.conf; then echo 'exists'; fi";
+    $shell_format = "if test -f /etc/apache2/sites-available/%s_%s.conf; then echo 'exists'; fi";
 
     $cz_exists = shell_exec(sprintf($shell_format, $domain, "cz"));
     $com_exists = shell_exec(sprintf($shell_format, $domain, "com"));
