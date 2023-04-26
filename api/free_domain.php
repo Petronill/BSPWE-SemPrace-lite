@@ -21,5 +21,5 @@
         array_push($free_domains, array("name"=>$domain.".org", "cost"=>199));
     }
 
-    return json_encode($free_domains);
+    echo json_encode($free_domains);
 ?>
