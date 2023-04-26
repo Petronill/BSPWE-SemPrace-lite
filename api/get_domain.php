@@ -1,7 +1,7 @@
 <?php
     $domain = $_POST['domain'];
 
-    $username = $domain.substr(uniqid(""), 0, 6);
+    $username = $domain."_".substr(uniqid(""), 6);
     $passwordDB = substr(uniqid("", true), -8);
     $passwordFTP = substr(uniqid("", true), -8);
 

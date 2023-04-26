@@ -19,7 +19,7 @@
             <h1>Zvolte si doménu</h1>
         </div>
         <div class="m-5"> </div>
-        <form method="post" class="row col-md-12">
+        <form onsubmit="return false;" class="row col-md-12">
             <div class="m-auto col-auto">
                 <div class="input-group">
                     <div class="input-group-text text-addon" id="btnGroupAddon">www.</div>
@@ -30,8 +30,8 @@
             </div>
         </form>
         <div class="row col-md-12 table-container table-responsive">
-            <table class="table table-bordered table-hover">
-                <!-- <caption>Volné domény</caption> -->
+            <table class="table table-bordered table-hover" id="domain-table-container">
+                <!--<caption>Volné domény</caption> -->
                 <thead class="thead-green">
                     <tr>
                         <th scope="col">Doména</th>
@@ -45,6 +45,8 @@
         </div>
         <div class="row col-md-12" id="no-data-container" style="margin-top: 2rem;">
             <h4>Tato doména již má svého vlastníka, vyberte si prosím jinou</h4>
+        </div>
+        <div class="row col-md-12" id="credentials-container" style="margin-top: 2rem;">
         </div>
     </div>
     <div class="fixed-bottom">
