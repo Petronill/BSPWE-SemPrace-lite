@@ -56,13 +56,18 @@ function getDomain(domain) {
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">PIN k FTP:</th>
+                    <td>${data.credentials.passwordFTP}</td>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">PIN k databázi:</th>
                     <td>${data.credentials.passwordDB}</td>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">PIN k FTP:</th>
-                    <td>${data.credentials.passwordFTP}</td>
+                    <th scope="row">Název databáze:</th>
+                    <td>${data.credentials.dbname}</td>
                     </td>
                 </tr>
             </table>`);

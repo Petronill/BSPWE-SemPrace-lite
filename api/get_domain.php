@@ -1,13 +1,14 @@
 <?php
-    $domain = $_POST['domain'];
+    $domain = str_replace(".", "_", $_POST['domain']);
 
     $username = $domain."_".substr(uniqid(""), 6);
     $passwordDB = substr(uniqid("", true), -8);
     $passwordFTP = substr(uniqid("", true), -8);
+    $dbname = $username."_db";
 
     // Create DB
-    $output = shell_exec(sprintf("/var/www/scripts/create_database.sh '%s' '%s' '%s'", 
-        $username."_db", $username, $passwordDB));
+    $output = shell_exec(sprintf("sudo /var/www/scripts/create_database.sh '%s' '%s' '%s'", 
+        $dbname, $username, $passwordDB));
 
     // Create FTP
     if(is_string($output)) {
@@ -18,11 +19,11 @@
     // Create web
     if(is_string($output)) {
         $output = shell_exec(sprintf("sudo /var/www/scripts/create_web.sh '%s' '%s'", 
-            $username, $domain));
+        $username, $domain));
     }
 
     $is_success = is_string($output) ? true : false;
-    $credentials = array("username"=>$username, "passwordDB"=>$passwordDB, "passwordFTP"=>$passwordFTP);
+    $credentials = array("username"=>$username, "passwordFTP"=>$passwordFTP, "passwordDB"=>$passwordDB, "dbname" => $dbname);
     
     echo json_encode(array("success"=>$is_success, "credentials"=>$credentials));
 ?>
